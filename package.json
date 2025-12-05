@@ -17,7 +17,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:workana": "REACT_APP_WORKANA_MODE=true react-scripts start",
+    "start:full": "REACT_APP_WORKANA_MODE=false react-scripts start",
     "build": "react-scripts build",
+    "build:workana": "REACT_APP_WORKANA_MODE=true react-scripts build",
+    "build:full": "REACT_APP_WORKANA_MODE=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
