@@ -56,38 +56,44 @@ vercel --prod --local-config vercel-workana.json
 
 ## 📝 **Passos para Deploy Manual**
 
-### **Opção 1: Via Vercel CLI**
-```bash
-# Instalar Vercel CLI
-npm i -g vercel
+### **⚠️ Solução para Erro 404: DEPLOYMENT_NOT_FOUND**
 
-# Login
-vercel login
+Se você recebeu o erro `404: NOT_FOUND - DEPLOYMENT_NOT_FOUND`, siga estes passos:
 
-# Deploy versão completa
-vercel --prod
+### **Opção 1: Via Vercel Dashboard (RECOMENDADO)**
 
-# Deploy versão Workana (novo projeto)
-vercel --prod --local-config vercel-workana.json
-```
+#### **🔥 PASSO A PASSO DETALHADO:**
 
-### **Opção 2: Via Vercel Dashboard**
+**Projeto 1 - Portfolio Completo:**
+1. **Acesse**: [vercel.com/new](https://vercel.com/new)
+2. **Faça login** com GitHub
+3. **Import Git Repository**: 
+   - Procure por `tonynerd/portfolio-tony`
+   - Clique em **Import**
+4. **Configure Deploy Settings:**
+   - **Project Name**: `portfolio-tony-complete` (ou outro nome)
+   - **Framework Preset**: `Create React App`
+   - **Root Directory**: `.` (raiz)
+   - **Build Command**: `npm run build:full`
+   - **Output Directory**: `build`
+5. **Environment Variables**:
+   - **Name**: `REACT_APP_WORKANA_MODE`
+   - **Value**: `false`
+6. Clique em **Deploy**
 
-#### **Projeto 1 - Portfolio Completo:**
-1. Acesse [vercel.com/new](https://vercel.com/new)
-2. Conecte o repositório `portfolio-tony`
-3. Configure:
-   - **Project Name**: `portfolio-tony`
-   - **Environment Variables**: `REACT_APP_WORKANA_MODE = false`
-4. Deploy
-
-#### **Projeto 2 - Portfolio Workana:**
-1. Crie novo projeto na Vercel
-2. Conecte o mesmo repositório `portfolio-tony`
-3. Configure:
+**Projeto 2 - Portfolio Workana (Safe Mode):**
+1. **Acesse**: [vercel.com/new](https://vercel.com/new) (nova aba)
+2. **Import** o mesmo repositório `tonynerd/portfolio-tony`
+3. **Configure Deploy Settings:**
    - **Project Name**: `portfolio-tony-workana`
-   - **Environment Variables**: `REACT_APP_WORKANA_MODE = true`
-4. Deploy
+   - **Framework Preset**: `Create React App`
+   - **Root Directory**: `.` (raiz)
+   - **Build Command**: `npm run build:workana`
+   - **Output Directory**: `build`
+4. **Environment Variables**:
+   - **Name**: `REACT_APP_WORKANA_MODE`
+   - **Value**: `true`
+5. Clique em **Deploy**
 
 ---
 
@@ -103,6 +109,31 @@ vercel --prod --local-config vercel-workana.json
 
 ---
 
+## 🚨 **Troubleshooting - Erro 404**
+
+### **Erro: `404: NOT_FOUND - DEPLOYMENT_NOT_FOUND`**
+
+**Possíveis causas e soluções:**
+
+1. **Deploy não foi criado ainda**:
+   - Siga os passos acima para criar os deploys
+
+2. **URL incorreta**:
+   - Verifique se a URL está correta no dashboard da Vercel
+   - Exemplo: `https://seu-projeto-nome.vercel.app`
+
+3. **Deploy em progresso**:
+   - Aguarde alguns minutos após o deploy
+   - Verifique o status no dashboard
+
+4. **Build falhou**:
+   - Verifique os logs no dashboard da Vercel
+   - Execute `npm run build:full` localmente para testar
+
+### **URLs de exemplo após deploy:**
+- Portfolio Completo: `https://portfolio-tony-complete-abc123.vercel.app`
+- Portfolio Workana: `https://portfolio-tony-workana-xyz789.vercel.app`
+
 ## 🔧 **Scripts Úteis**
 ```bash
 # Testar builds localmente
@@ -111,4 +142,13 @@ npm run build:workana  # Versão Workana
 
 # Preview local dos builds
 npx serve -s build
+
+# Verificar se build está funcionando
+npm start              # Desenvolvimento
 ```
+
+## 🆘 **Se ainda não funcionar:**
+1. Exclua o projeto na Vercel
+2. Crie novamente seguindo os passos detalhados
+3. Certifique-se que o repositório é público no GitHub
+4. Verifique se as environment variables estão corretas
