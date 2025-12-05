@@ -37,7 +37,7 @@ const Blog = () => {
               
               <div className="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden border border-white/10">
                 <img 
-                  src="/blog-image.jpg" 
+                  src="/blog-image.jpeg" 
                   alt="A Engenharia do Invisível"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -45,7 +45,7 @@ const Blog = () => {
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className="w-full h-full bg-gradient-to-tr from-slate-900 to-slate-800 rounded-2xl flex items-center justify-center border border-white/10" style={{display: 'none'}}>
+                <div className="w-full h-full bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center" style={{display: 'none'}}>
                   <Code2 size={64} className="text-slate-700" />
                 </div>
               </div>
