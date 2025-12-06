@@ -37,29 +37,17 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4">
           {IS_WORKANA_MODE ? (
-            // Versão Workana - Botão para Workana + GitHub sem ícone
-            <>
-              <motion.a 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.workana.com/freelancer/2ce486df83a8d15d5096210f0a150e0a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.2)]"
-              >
-                Contratar via Workana <ArrowRight size={20} />
-              </motion.a>
-              <motion.a 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://github.com/tonynerd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 border border-white/10 hover:border-white/30 text-white rounded-lg font-semibold transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center gap-2"
-              >
-                GitHub
-              </motion.a>
-            </>
+            // Versão Workana - Apenas botão Workana
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://www.workana.com/freelancer/2ce486df83a8d15d5096210f0a150e0a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.2)]"
+            >
+              Contratar via Workana <ArrowRight size={20} />
+            </motion.a>
           ) : (
             // Versão Completa - Botões originais
             <>

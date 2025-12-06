@@ -19,7 +19,7 @@ export const socials = [
   },
   {
     name: 'instagram',
-    url: 'https://instagram.com/tony_nerd',
+    url: 'https://www.instagram.com/tonyaguiar15?igsh=MWEwOGNoNno4ejB6NQ%3D%3D&utm_source=qr',
     text: 'Instagram',
     color: 'pink'
   }

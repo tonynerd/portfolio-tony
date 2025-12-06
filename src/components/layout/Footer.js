@@ -27,8 +27,8 @@ const Footer = () => {
           
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-16">
             {socials.map(social => {
-              // Na versão Workana, oculta WhatsApp e Email
-              if (IS_WORKANA_MODE && (social.name === 'whatsapp' || social.name === 'email')) {
+              // Na versão Workana, oculta WhatsApp, Email, GitHub e Instagram
+              if (IS_WORKANA_MODE && (social.name === 'whatsapp' || social.name === 'email' || social.name === 'github' || social.name === 'instagram')) {
                 return null;
               }
               
