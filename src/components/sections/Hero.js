@@ -2,7 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ArrowRight } from 'lucide-react';
 
-const Hero = () => (
+const Hero = () => {
+  const IS_WORKANA_MODE = process.env.REACT_APP_WORKANA_MODE === 'true';
+
+  return (
   <section className="relative min-h-screen flex items-center pt-16">
     {/* Abstract Background Elements */}
     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -33,22 +36,53 @@ const Hero = () => (
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://wa.me/5577981327367"
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.2)]"
-          >
-            Iniciar Projeto <ArrowRight size={20} />
-          </motion.a>
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com/tonynerd"
-            className="px-8 py-4 border border-white/10 hover:border-white/30 text-white rounded-lg font-semibold transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center gap-2"
-          >
-            <Github size={20} /> GitHub
-          </motion.a>
+          {IS_WORKANA_MODE ? (
+            // Versão Workana - Botão para Workana + GitHub sem ícone
+            <>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://www.workana.com/freelancer/2ce486df83a8d15d5096210f0a150e0a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.2)]"
+              >
+                Contratar via Workana <ArrowRight size={20} />
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://github.com/tonynerd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-white/10 hover:border-white/30 text-white rounded-lg font-semibold transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center gap-2"
+              >
+                GitHub
+              </motion.a>
+            </>
+          ) : (
+            // Versão Completa - Botões originais
+            <>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/5577981327367"
+                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.2)]"
+              >
+                Iniciar Projeto <ArrowRight size={20} />
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://github.com/tonynerd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-white/10 hover:border-white/30 text-white rounded-lg font-semibold transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center gap-2"
+              >
+                <Github size={20} /> GitHub
+              </motion.a>
+            </>
+          )}
         </div>
       </motion.div>
     </div>
@@ -64,6 +98,7 @@ const Hero = () => (
       </div>
     </motion.div>
   </section>
-);
+  );
+};
 
 export default Hero;

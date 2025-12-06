@@ -25,7 +25,7 @@ export default function Portfolio() {
         <About />
         <Projects />
         <TechStack />
-        {SafeModeConfig.shouldShowSection('blog') && <Blog />}
+        <Blog />
       </main>
       <Footer />
       

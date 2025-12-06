@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const IS_WORKANA_MODE = process.env.REACT_APP_WORKANA_MODE === 'true';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,14 +50,17 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="https://github.com/tonynerd"
-            target="_blank"
-            rel="noreferrer" 
-            className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/5"
-          >
-            <Github size={20} className="text-white" />
-          </a>
+          {!IS_WORKANA_MODE && (
+            // GitHub só aparece na versão completa
+            <a 
+              href="https://github.com/tonynerd"
+              target="_blank"
+              rel="noreferrer" 
+              className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/5"
+            >
+              <Github size={20} className="text-white" />
+            </a>
+          )}
         </div>
 
         {/* Mobile Menu Button */}

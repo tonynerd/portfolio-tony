@@ -4,6 +4,7 @@ import { MessageCircle, Mail, Github, Instagram } from 'lucide-react';
 import { socials } from '../../api/socials';
 
 const Footer = () => {
+  const IS_WORKANA_MODE = process.env.REACT_APP_WORKANA_MODE === 'true';
   const socialIcons = {
     whatsapp: <MessageCircle className="text-green-500 group-hover:scale-110 transition-transform" />,
     email: <Mail className="text-blue-500 group-hover:scale-110 transition-transform" />,
@@ -25,18 +26,25 @@ const Footer = () => {
           </p>
           
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-16">
-            {socials.map(social => (
-              <a 
-                key={social.name}
-                href={social.url} 
-                className={`flex items-center justify-center gap-3 px-6 py-4 bg-white/5 hover:bg-${social.color}-600/20 border border-white/10 hover:border-${social.color}-500/50 rounded-xl text-white transition-all group`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {socialIcons[social.name]}
-                {social.text}
-              </a>
-            ))}
+            {socials.map(social => {
+              // Na versão Workana, oculta WhatsApp e Email
+              if (IS_WORKANA_MODE && (social.name === 'whatsapp' || social.name === 'email')) {
+                return null;
+              }
+              
+              return (
+                <a 
+                  key={social.name}
+                  href={social.url} 
+                  className={`flex items-center justify-center gap-3 px-6 py-4 bg-white/5 hover:bg-${social.color}-600/20 border border-white/10 hover:border-${social.color}-500/50 rounded-xl text-white transition-all group`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {socialIcons[social.name]}
+                  {social.text}
+                </a>
+              );
+            })}
           </div>
 
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-slate-600 text-sm">
